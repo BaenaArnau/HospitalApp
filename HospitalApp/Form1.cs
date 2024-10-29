@@ -56,8 +56,8 @@ namespace HospitalApp
                     dataListaPersonas.DataSource = personas.OfType<Administrativo>().ToList();
                     break;
                 case 4:
-                    buttonAdd.Visible = true;
-                    buttonDelete.Visible = true;
+                    buttonAdd.Visible = false;
+                    buttonDelete.Visible = false;
                     buttonBuscar.Visible = true;
                     label1.Visible = true;
                     textDNIPaciente.Visible = true;
@@ -104,6 +104,28 @@ namespace HospitalApp
                 case 4:
                     break;
             }
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            if (textDNIPaciente.Text.Length == 9)
+            {
+                foreach (Paciente paciente in personas.OfType<Paciente>().ToList())
+                {
+                    string dni = paciente.Dni + "" + paciente.LetraDni + "";
+                    if (dni == textDNIPaciente.Text)
+                    {
+                        buttonAdd.Visible = true;
+                        buttonDelete.Visible = true;
+                        dataListaPersonas.DataSource = paciente.Historial;
+                        return;
+                    }
+                }
+
+                MessageBox.Show("No se ha encontrado el paciente, introduzca un DNI valido");
+            }
+            else
+                MessageBox.Show("El formato del DNI no es un formato valido");
         }
     }
 }

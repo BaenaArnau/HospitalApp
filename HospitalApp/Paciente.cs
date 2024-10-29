@@ -1,14 +1,16 @@
-﻿namespace HospitalApp
+﻿using System.Collections.Generic;
+
+namespace HospitalApp
 {
     public class Paciente : Persona
     {
         protected Medico medicoDeCabecera;
-        protected Historial historialMedico;
+        protected List<Cita> historial;
 
-        public Historial HistorialMedioco
+        public List<Cita> Historial 
         {
-            get { return historialMedico; }
-            set { historialMedico = value; }
+            get { return historial; }
+            set { historial = value; }
         }
 
         public Medico MedicoDeCabecera
@@ -28,23 +30,23 @@
 
         public Paciente()
         {
-            historialMedico = new Historial();
+            Historial = new List<Cita>();
         }
 
-        public Paciente(string nombre, int edad, int dni, char letraDni, Historial historialMedico) : base(nombre, edad, dni, letraDni)
+        public Paciente(string nombre, int edad, int dni, char letraDni, List<Cita> historial) : base(nombre, edad, dni, letraDni)
         {
-            this.historialMedico = historialMedico;
+            this.Historial = historial;
         }
 
-        public Paciente(Persona persona,Historial historialMedico) : base(persona.Nombre, persona.Edad, persona.Dni, persona.LetraDni)
+        public Paciente(Persona persona, List<Cita> historial) : base(persona.Nombre, persona.Edad, persona.Dni, persona.LetraDni)
         {
-            this.historialMedico = historialMedico;
+            this.Historial = historial;
         }
 
         public override string ToString()
         {
             return $@"{base.ToString()}: 
-{HistorialMedioco.ToString()}";
+{historial.ToString()}";
         }
     }
 }

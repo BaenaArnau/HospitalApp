@@ -7,6 +7,9 @@ namespace HospitalApp
         protected Paciente paciente;
         protected Medico medico;
         protected DateTime fecha;
+        protected string diagnostico;
+        protected string tratamiento;
+        protected string notas;
 
         public Paciente Paciente
         {
@@ -24,6 +27,24 @@ namespace HospitalApp
         {
             get { return fecha; }
             set { fecha = value; }
+        }
+
+        public string Diagnostico 
+        {
+            get { return diagnostico; }
+            set { diagnostico = value; }
+        }
+
+        public string Tratamiento
+        {
+            get { return tratamiento; }
+            set { tratamiento = value; }
+        }
+
+        public string Notas 
+        {
+            get { return notas; }
+            set { notas = value; }
         }
 
         public Cita()
