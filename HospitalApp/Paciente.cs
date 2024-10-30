@@ -30,6 +30,7 @@ namespace HospitalApp
 
         public Paciente()
         {
+            MedicoDeCabecera = new Medico();
             Historial = new List<Cita>();
         }
 

@@ -37,7 +37,7 @@ namespace HospitalApp
 
         public override string ToString()
         {
-            return $"{base.ToString()}, trabajando el la planta {numeroDePlanta} del hospital";
+            return $"{base.nombre}";
         }
     }
 }

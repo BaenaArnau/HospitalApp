@@ -47,6 +47,8 @@
             this.dataListaPersonas.RowTemplate.Height = 24;
             this.dataListaPersonas.Size = new System.Drawing.Size(700, 380);
             this.dataListaPersonas.TabIndex = 1;
+            this.dataListaPersonas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListaPersonas_CellEndEdit);
+            this.dataListaPersonas.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListaPersonas_CellValueChanged);
             // 
             // buttonAdd
             // 
